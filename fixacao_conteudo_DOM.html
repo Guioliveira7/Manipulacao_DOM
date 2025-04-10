@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const campo = document.getElementById('campo');
+
+            campo.addEventListener('focus', function() {
+            this.style.backgroundColor = "yellow";
+            });
+
+            campo.addEventListener('blur', function() {
+            const valorCampo = this.value.trim();
+            if (valorCampo.length < 3) {
+                this.style.backgroundColor = "red";
+            } else {
+                this.style.backgroundColor = "green";
+            }
+            });
+        });
+        function validaCampo() { 
+            var valorCampo = document.getElementById('campo').value;
+            if (valorCampo.length < 3) {
+                document.getElementById('campo').style.background = "red";
+            } else {
+                document.getElementById('campo').style.background = "green";
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="campo" type="text" onfocus="acionaCampo()" onblur="validaCampo()" />
+</body>
+</html>
